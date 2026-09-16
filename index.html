@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Academic research portfolio of Attiq Ur Rehman, a wireless communications researcher working on 6G terrestrial and non-terrestrial networks, satellite communications, AI for networks, and ISAC.">
+  <title>Attiq Ur Rehman | Wireless Communications Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #092f4f;
+      --blue: #176d9d;
+      --blue-2: #2e8bb8;
+      --sky: #eaf5fb;
+      --sky-2: #d9edf7;
+      --ink: #15212b;
+      --muted: #64717d;
+      --line: #dbe5eb;
+      --white: #ffffff;
+      --page: #ffffff;
+      --soft: #f6f9fb;
+      --green: #10834d;
+      --green-bg: #effcf5;
+      --shadow: 0 18px 50px rgba(18, 55, 78, .10);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 82px; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--page);
+      font-family: "Inter", sans-serif;
+      line-height: 1.7;
+    }
+
+    body.dark {
+      --navy: #8ecbe9;
+      --blue: #62b5df;
+      --blue-2: #7bc8e9;
+      --sky: #162b38;
+      --sky-2: #1d3948;
+      --ink: #eef6fa;
+      --muted: #b3c1ca;
+      --line: #304955;
+      --white: #13232c;
+      --page: #0d1a21;
+      --soft: #10232d;
+      --green: #75dca5;
+      --green-bg: #123528;
+      --shadow: 0 18px 50px rgba(0, 0, 0, .26);
+    }
+
+    a { color: var(--blue); }
+    img { display: block; max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .container { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+    .section { padding: 92px 0; }
+    .section.soft { background: var(--soft); }
+    .section.sky { background: linear-gradient(135deg, var(--sky), var(--soft)); }
+
+    .section-heading { margin-bottom: 36px; }
+    .kicker {
+      margin: 0 0 9px;
+      color: var(--blue);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { font-family: "Manrope", sans-serif; }
+    h2 { margin: 0; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.18; }
+    h2::after { content: ""; display: block; width: 46px; height: 3px; margin-top: 14px; background: var(--blue); border-radius: 99px; }
+    h3 { line-height: 1.35; }
+    .section-intro { max-width: 760px; margin: 15px 0 0; color: var(--muted); }
+
+    .skip-link { position: fixed; left: -999px; top: 8px; z-index: 9999; padding: 10px 14px; background: var(--white); color: var(--ink); }
+    .skip-link:focus { left: 8px; }
+
+    /* Navigation */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 500;
+      background: color-mix(in srgb, var(--white) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+    .nav-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { color: var(--ink); font-family: "Manrope", sans-serif; font-size: 1.05rem; font-weight: 800; text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 5px; }
+    .nav-links a { padding: 9px 10px; color: var(--muted); border-radius: 8px; font-size: .87rem; font-weight: 600; text-decoration: none; }
+    .nav-links a:hover, .nav-links a:focus { color: var(--blue); background: var(--sky); }
+    .nav-actions { display: flex; align-items: center; gap: 8px; }
+    .icon-button {
+      width: 40px; height: 40px; display: grid; place-items: center;
+      color: var(--ink); background: var(--soft); border: 1px solid var(--line); border-radius: 50%; cursor: pointer;
+    }
+    .menu-button { display: none; }
+
+    /* Hero */
+    .hero { position: relative; overflow: hidden; padding: 92px 0 74px; background: linear-gradient(150deg, var(--white) 48%, var(--sky) 100%); }
+    .hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+    .hero::before { width: 360px; height: 360px; right: -110px; top: -160px; background: rgba(46, 139, 184, .10); }
+    .hero::after { width: 170px; height: 170px; left: -80px; bottom: -70px; background: rgba(23, 109, 157, .08); }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 340px; align-items: center; gap: 72px; }
+    .hero-label { display: inline-flex; align-items: center; gap: 8px; padding: 8px 13px; color: var(--blue); background: var(--sky); border: 1px solid #b7d9e8; border-radius: 999px; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .hero-label::before { content: ""; width: 8px; height: 8px; background: var(--blue); border-radius: 50%; }
+    h1 { margin: 20px 0 12px; font-size: clamp(3.4rem, 8vw, 6.6rem); letter-spacing: -.055em; line-height: .98; }
+    h1 span { color: var(--blue); }
+    .hero-title { margin: 0; color: var(--muted); font-size: clamp(1.1rem, 2.3vw, 1.55rem); font-weight: 600; }
+    .hero-copy { max-width: 750px; margin: 25px 0 0; color: var(--muted); font-size: 1.04rem; }
+    .status-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+    .status-pill { display: inline-flex; align-items: center; gap: 9px; padding: 10px 15px; border-radius: 999px; font-size: .9rem; font-weight: 700; }
+    .status-pill.green { color: var(--green); background: var(--green-bg); border: 1px solid #aee8c8; }
+    .status-pill.blue { color: var(--blue); background: var(--sky); border: 1px solid #b7d9e8; }
+    .status-dot { width: 9px; height: 9px; background: currentColor; border-radius: 50%; }
+    .hero-socials { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 24px; }
+    .hero-socials a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; color: var(--ink); background: var(--white); border: 1px solid var(--line); border-radius: 9px; font-size: .88rem; font-weight: 700; text-decoration: none; transition: .2s; }
+    .hero-socials a:hover { color: var(--blue); border-color: var(--blue); transform: translateY(-2px); }
+    .hero-photo-wrap { position: relative; justify-self: center; }
+    .hero-photo-wrap::before { content: ""; position: absolute; inset: 18px -18px -18px 18px; background: var(--blue); border-radius: 32px; opacity: .14; }
+    .profile-photo { position: relative; width: 300px; height: 370px; object-fit: cover; object-position: top center; background: var(--sky); border: 8px solid var(--white); border-radius: 28px; box-shadow: var(--shadow); }
+    .photo-badge { position: absolute; right: -28px; bottom: 28px; z-index: 2; max-width: 190px; padding: 13px 16px; color: var(--ink); background: var(--white); border: 1px solid var(--line); border-radius: 13px; box-shadow: var(--shadow); font-size: .8rem; font-weight: 700; }
+    .photo-badge strong { display: block; color: var(--blue); font-size: 1rem; }
+
+    /* Core topics and achievements */
+    .topic-band { padding: 26px 0 30px; border-bottom: 1px solid var(--line); }
+    .topic-label { margin: 0 0 12px; color: var(--muted); font-size: .75rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .topic-list { display: flex; flex-wrap: wrap; gap: 9px; }
+    .topic { padding: 8px 14px; color: var(--blue); background: var(--sky); border: 1px solid #bad8e6; border-radius: 999px; font-size: .84rem; font-weight: 600; }
+    .achievement-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .achievement-card { min-height: 130px; padding: 23px 21px; background: linear-gradient(145deg, var(--sky-2), var(--white)); border: 1px solid #a9cee0; border-radius: 12px; }
+    .achievement-card strong { display: block; color: var(--blue); font-family: "Manrope", sans-serif; font-size: 2rem; line-height: 1; }
+    .achievement-card span { display: block; margin-top: 13px; color: var(--muted); font-size: .88rem; }
+
+    /* About, education and experience */
+    .about-grid { display: grid; grid-template-columns: 1.4fr .6fr; gap: 62px; align-items: start; }
+    .about-copy p { margin-top: 0; color: var(--muted); }
+    .quick-facts { display: grid; gap: 12px; }
+    .fact { padding: 17px 18px; background: var(--soft); border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0; }
+    .fact span { display: block; color: var(--muted); font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+    .fact strong { display: block; margin-top: 3px; font-size: .94rem; }
+    .timeline { position: relative; display: grid; gap: 24px; }
+    .timeline::before { content: ""; position: absolute; left: 17px; top: 14px; bottom: 14px; width: 2px; background: var(--line); }
+    .timeline-item { position: relative; padding: 0 0 0 52px; }
+    .timeline-dot { position: absolute; left: 8px; top: 7px; width: 20px; height: 20px; background: var(--white); border: 5px solid var(--blue); border-radius: 50%; }
+    .timeline-card { padding: 25px 26px; background: var(--white); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 9px 25px rgba(18, 55, 78, .06); }
+    .timeline-card h3 { margin: 0; font-size: 1.1rem; }
+    .timeline-meta { margin: 6px 0 0; color: var(--blue); font-size: .86rem; font-weight: 700; }
+    .timeline-card p:last-child { margin-bottom: 0; color: var(--muted); }
+
+    /* Research accordions */
+    .research-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+    .research-item { background: var(--white); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: border-color .2s, box-shadow .2s; }
+    .research-item[open] { border-color: #9ccade; box-shadow: var(--shadow); }
+    .research-item summary { min-height: 92px; display: grid; grid-template-columns: 48px 1fr 26px; align-items: center; gap: 14px; padding: 18px 20px; cursor: pointer; list-style: none; font-weight: 750; }
+    .research-item summary::-webkit-details-marker { display: none; }
+    .research-icon { width: 46px; height: 46px; display: grid; place-items: center; color: var(--blue); background: var(--sky); border-radius: 12px; }
+    .research-icon svg { width: 25px; height: 25px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .research-plus { color: var(--blue); font-size: 1.4rem; transition: transform .2s; }
+    .research-item[open] .research-plus { transform: rotate(45deg); }
+    .research-detail { margin: 0; padding: 0 20px 22px 82px; color: var(--muted); font-size: .92rem; }
+
+    /* Projects */
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    .project-card { overflow: hidden; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 12px 35px rgba(18, 55, 78, .07); transition: transform .25s, box-shadow .25s; }
+    .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .project-visual { width: 100%; height: 245px; display: grid; place-items: center; overflow: hidden; background: var(--sky); }
+    .project-visual img { width: 100%; height: 100%; object-fit: cover; }
+    .project-visual.anchor img { object-fit: contain; padding: 8px; background: #fff; }
+    .project-visual svg { width: 100%; height: 100%; }
+    .project-body { padding: 25px; }
+    .project-body h3 { margin: 0; font-size: 1.22rem; }
+    .project-subtitle { margin: 5px 0 13px; color: var(--blue); font-size: .88rem; font-weight: 700; }
+    .project-body p { color: var(--muted); font-size: .92rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 18px 0; }
+    .project-tag { padding: 5px 9px; color: var(--blue); background: var(--sky); border: 1px solid #b9d7e5; border-radius: 6px; font-size: .75rem; font-weight: 650; }
+    .project-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 16px; border-top: 1px solid var(--line); }
+    .project-status { color: var(--muted); font-size: .8rem; }
+    .project-link { display: inline-flex; align-items: center; gap: 7px; padding: 9px 12px; color: var(--blue); background: var(--sky); border: 1px solid #afd1e1; border-radius: 8px; font-size: .82rem; font-weight: 750; text-decoration: none; }
+
+    /* Publications and IP */
+    .publication-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+    .tab-button { padding: 9px 14px; color: var(--muted); background: var(--white); border: 1px solid var(--line); border-radius: 999px; font: inherit; font-size: .82rem; font-weight: 700; cursor: pointer; }
+    .tab-button.active { color: #fff; background: var(--blue); border-color: var(--blue); }
+    .publication-panel { display: none; }
+    .publication-panel.active { display: grid; gap: 12px; }
+    .paper { display: grid; grid-template-columns: 38px 1fr auto; gap: 15px; align-items: start; padding: 20px; background: var(--white); border: 1px solid var(--line); border-radius: 12px; }
+    .paper-number { width: 34px; height: 34px; display: grid; place-items: center; color: var(--blue); background: var(--sky); border-radius: 50%; font-size: .78rem; font-weight: 800; }
+    .paper h3 { margin: 0; font-family: "Inter", sans-serif; font-size: .92rem; font-weight: 750; }
+    .paper p { margin: 6px 0 0; color: var(--muted); font-size: .8rem; }
+    .paper-link { padding: 7px 10px; color: var(--blue); background: var(--sky); border-radius: 7px; font-size: .76rem; font-weight: 750; text-decoration: none; white-space: nowrap; }
+    .review-label { display: inline-block; margin-top: 7px; padding: 4px 8px; color: var(--green); background: var(--green-bg); border-radius: 99px; font-size: .72rem; font-weight: 750; }
+    .ip-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .ip-card { padding: 23px; background: var(--white); border: 1px solid var(--line); border-top: 4px solid var(--blue); border-radius: 12px; }
+    .ip-card h3 { margin: 0; font-size: 1rem; }
+    .ip-card p { margin-bottom: 0; color: var(--muted); font-size: .84rem; }
+
+    /* Awards and activities */
+    .award-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .award { padding: 22px; background: var(--white); border: 1px solid var(--line); border-radius: 13px; }
+    .award-icon { width: 42px; height: 42px; display: grid; place-items: center; margin-bottom: 13px; color: var(--blue); background: var(--sky); border-radius: 11px; font-size: 1.15rem; }
+    .award h3 { margin: 0; font-size: .98rem; }
+    .award p { margin: 7px 0 0; color: var(--muted); font-size: .82rem; }
+    .gallery { columns: 4 220px; column-gap: 13px; }
+    .gallery figure { break-inside: avoid; margin: 0 0 13px; overflow: hidden; border-radius: 12px; background: var(--soft); }
+    .gallery img { width: 100%; cursor: pointer; transition: transform .25s; }
+    .gallery img:hover { transform: scale(1.025); }
+
+    .gallery figcaption { padding: 10px 12px 12px; color: var(--muted); font-size: .76rem; line-height: 1.45; }
+    .cv-button { color:#fff !important; background:var(--blue) !important; border-color:var(--blue) !important; }
+    .award-feature { display:grid; grid-template-columns: 220px 1fr; gap:26px; align-items:center; margin-top:24px; padding:22px; background:var(--white); border:1px solid var(--line); border-radius:16px; }
+    .award-feature img { width:100%; max-height:280px; object-fit:contain; border-radius:10px; background:#fff; }
+    .award-feature p { color:var(--muted); }
+    .award-feature a { display:inline-block; padding:9px 12px; background:var(--sky); border:1px solid #afd1e1; border-radius:8px; text-decoration:none; font-weight:700; font-size:.82rem; }
+    @media(max-width:700px){.award-feature{grid-template-columns:1fr}.award-feature img{max-height:360px}}
+
+    /* Contact and footer */
+    .contact-box { padding: 58px 40px; text-align: center; background: linear-gradient(135deg, var(--sky), var(--white)); border: 1px solid var(--line); border-radius: 24px; }
+    .contact-box h2::after { margin-inline: auto; }
+    .contact-box p { margin: 18px auto 25px; color: var(--muted); }
+    .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 11px; }
+    .contact-links a { display: inline-flex; align-items: center; gap: 8px; padding: 11px 16px; color: var(--ink); background: var(--white); border: 1px solid var(--line); border-radius: 9px; font-size: .88rem; font-weight: 700; text-decoration: none; }
+    .contact-links a.primary { color: #fff; background: var(--blue); border-color: var(--blue); }
+    .footer { padding: 28px 20px; color: #c9d9e2; background: #0b2739; text-align: center; font-size: .83rem; }
+
+    /* Image modal */
+    .modal { display: none; position: fixed; inset: 0; z-index: 1000; padding: 55px 20px 20px; background: rgba(2, 12, 18, .93); }
+    .modal-content { width: auto; max-width: 94%; max-height: 86vh; margin: auto; object-fit: contain; }
+    .modal-close { position: absolute; top: 8px; right: 28px; color: #fff; background: transparent; border: 0; font-size: 2.5rem; cursor: pointer; }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; position: absolute; top: 72px; left: 20px; right: 20px; padding: 12px; background: var(--white); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); }
+      .nav-links.open { display: grid; }
+      .menu-button { display: grid; }
+      .hero-grid { grid-template-columns: 1fr 280px; gap: 42px; }
+      .profile-photo { width: 250px; height: 320px; }
+      .achievement-grid { grid-template-columns: repeat(3, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .award-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(100% - 28px, 1180px); }
+      .section { padding: 68px 0; }
+      .hero { padding: 65px 0 55px; }
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-copy { margin-inline: auto; }
+      .status-row, .hero-socials { justify-content: center; }
+      .hero-photo-wrap { grid-row: 1; }
+      .profile-photo { width: 220px; height: 270px; }
+      .photo-badge { right: -18px; bottom: 16px; }
+      .achievement-grid { grid-template-columns: repeat(2, 1fr); }
+      .research-grid, .project-grid, .ip-grid, .award-grid { grid-template-columns: 1fr; }
+      .paper { grid-template-columns: 34px 1fr; }
+      .paper-link { grid-column: 2; justify-self: start; }
+      .research-detail { padding-left: 20px; }
+      .contact-box { padding: 42px 20px; }
+    }
+
+    @media (max-width: 430px) {
+      h1 { font-size: 3.1rem; }
+      .achievement-grid { grid-template-columns: 1fr; }
+      .achievement-card { min-height: auto; }
+      .topic { font-size: .76rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="site-nav" aria-label="Main navigation"><div class="container nav-inner">
+    <a class="brand" href="#home">Attiq Ur Rehman</a>
+    <div class="nav-links" id="navLinks"><a href="#about">About</a><a href="#education">Education</a><a href="#experience">Experience</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#intellectual-property">IP</a><a href="#awards">Awards</a><a href="#activities">Activities</a><a href="#contact">Contact</a></div>
+    <div class="nav-actions"><button class="icon-button" id="themeButton" type="button" aria-label="Toggle dark mode">◐</button><button class="icon-button menu-button" id="menuButton" type="button" aria-label="Open menu">☰</button></div>
+  </div></nav>
+
+  <header class="hero" id="home"><div class="container hero-grid">
+    <div><span class="hero-label">Wireless Communications Researcher</span><h1>Attiq <span>Ur Rehman</span></h1>
+      <p class="hero-title">6G NTN · Satellite Communications · AI for Networks</p>
+      <p class="hero-copy">Electrical and computer engineering researcher focused on next-generation terrestrial and non-terrestrial networks, AI-driven resource allocation, interference management, Doppler-resilient satellite links, and integrated sensing and communications.</p>
+      <div class="status-row"><span class="status-pill green"><span class="status-dot"></span>Visiting Researcher · South Korea</span><span class="status-pill blue">Open to research collaboration</span></div>
+      <div class="hero-socials"><a href="mailto:atiqurrh109@gmail.com">✉ Email</a><a href="https://www.linkedin.com/in/attiq-ur-rehman-807b78194/" target="_blank" rel="noopener">in LinkedIn</a><a href="https://scholar.google.com/citations?user=Vz_HTiwAAAAJ&amp;hl=en" target="_blank" rel="noopener">◈ Google Scholar</a><a href="https://github.com/Attiq109" target="_blank" rel="noopener">⌘ GitHub</a><a class="cv-button" href="assets/docs/Attiq_Ur_Rehman_CV.pdf" target="_blank">↓ Download CV</a></div>
+    </div>
+    <div class="hero-photo-wrap"><img class="profile-photo" src="assets/images/profile.png" alt="Portrait of Attiq Ur Rehman"><div class="photo-badge"><strong>Research Focus</strong>6G TN/NTN · AI · ISAC</div></div>
+  </div></header>
+
+  <main id="main">
+    <div class="topic-band"><div class="container"><p class="topic-label">Core research themes</p><div class="topic-list"><span class="topic">6G TN/NTN Integration</span><span class="topic">LEO &amp; VLEO Satellites</span><span class="topic">AI / DRL for Networks</span><span class="topic">Doppler Compensation</span><span class="topic">Air-to-Ground Communications</span><span class="topic">ISAC &amp; RSMA</span></div></div></div>
+
+    <section class="section sky"><div class="container"><div class="section-heading"><p class="kicker">Research at a glance</p></div><div class="achievement-grid"><div class="achievement-card"><strong>5</strong><span>Journal publications / accepted papers</span></div><div class="achievement-card"><strong>4</strong><span>Conference contributions</span></div><div class="achievement-card"><strong>2</strong><span>Korean patent applications</span></div><div class="achievement-card"><strong>2</strong><span>Software registrations</span></div><div class="achievement-card"><strong>1</strong><span>Best Workshop Paper Award</span></div></div></div></section>
+
+    <section class="section" id="about"><div class="container about-grid"><div class="about-copy"><div class="section-heading"><p class="kicker">Profile</p><h2>Engineering intelligent wireless systems</h2></div><p>I am an electrical and computer engineering researcher working on 6G terrestrial and non-terrestrial network integration. My research combines wireless system modelling with artificial intelligence to address resource allocation, interference management, mobility, and extreme Doppler in future communication networks.</p><p>My recent work includes cross-layer multi-agent PPO for integrated air-to-ground and terrestrial networks, deep-learning-based Doppler compensation for VLEO satellite links, and ISAC techniques for LEO satellite communications. I also have experience developing 3D wireless transmission simulation frameworks and leading collaborative research activities.</p></div><div class="quick-facts"><div class="fact"><span>Current role</span><strong>Visiting Researcher · South Korea</strong></div><div class="fact"><span>Master's</span><strong>Inha University · ECE · 2026</strong></div><div class="fact"><span>Research areas</span><strong>6G · NTN · Satellite · AI · ISAC</strong></div><div class="fact"><span>Programming</span><strong>Python · MATLAB</strong></div></div></div></section>
+
+    <section class="section soft" id="education"><div class="container"><div class="section-heading"><p class="kicker">Academic journey</p><h2>Education</h2></div><div class="timeline">
+      <article class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><h3>Master's in Electrical and Computer Engineering</h3><p class="timeline-meta">Inha University · Incheon, Republic of Korea · Mar. 2024 – Feb. 2026</p><p>GPA: 4.13/4.50 · Advisor: Prof. KyungHi Chang. Thesis research on cross-layer multi-agent PPO resource allocation in 6G A2G-TN systems and dual-head TCN Doppler compensation for VLEO satellites.</p></div></article>
+      <article class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><h3>Bachelor's in Electrical Engineering</h3><p class="timeline-meta">University of Sargodha · Sargodha, Pakistan · Dec. 2016 – Nov. 2020</p><p>GPA: 3.45/4.00 · Advisor: Engr. Nauman Ahmad Tariq. Undergraduate thesis on an IoT-based automatic solar-panel cleaning system using Arduino UNO and NodeMCU ESP8266.</p></div></article>
+    </div></div></section>
+
+    <section class="section" id="experience"><div class="container"><div class="section-heading"><p class="kicker">Appointments</p><h2>Research experience</h2></div><div class="timeline">
+      <article class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><h3>Visiting Researcher</h3><p class="timeline-meta">South Korea · 2026 – Present</p><p>Continuing research in advanced wireless communications while maintaining institutional details private.</p></div></article>
+      <article class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><h3>Research Assistant / Project Leader</h3><p class="timeline-meta">Mobile Telecommunication Research Lab (MTRL), Inha University · Mar. 2024 – Feb. 2026</p><p>Designed a 3D wireless transmission simulator for supersonic communications; investigated multi-agent PPO for A2G-TN resource allocation; developed VLEO Doppler acquisition and tracking research; and supported system modelling, link-budget analysis, topology selection, and simulation validation.</p></div></article>
+    </div></div></section>
+
+    <section class="section sky" id="research"><div class="container"><div class="section-heading"><p class="kicker">Research portfolio</p><h2>Areas of investigation</h2><p class="section-intro">My work spans wireless communications, satellite networks, artificial intelligence, and integrated sensing and communications.</p></div><div class="research-grid">
+      <details class="research-item" open><summary><span class="research-icon">◉</span><span>6G Terrestrial &amp; Non-Terrestrial Integration</span><span class="research-plus">+</span></summary><p class="research-detail">Integrated TN/NTN architectures, spectrum coordination, interference management, link budgets, coverage, and resource allocation for future 6G networks.</p></details>
+      <details class="research-item"><summary><span class="research-icon">↗</span><span>LEO / VLEO Satellite Communications</span><span class="research-plus">+</span></summary><p class="research-detail">High-mobility satellite links with severe Doppler, channel dynamics, tracking, and reliable physical-layer communication.</p></details>
+      <details class="research-item"><summary><span class="research-icon">AI</span><span>AI &amp; Reinforcement Learning for Networks</span><span class="research-plus">+</span></summary><p class="research-detail">Multi-agent PPO, predictive control, deep learning, and temporal convolutional networks for wireless resource management and signal processing.</p></details>
+      <details class="research-item"><summary><span class="research-icon">≈</span><span>Doppler Compensation</span><span class="research-plus">+</span></summary><p class="research-detail">Coarse-to-fine frequency-offset acquisition and CP-aided tracking for wide-range Doppler in VLEO satellite systems.</p></details>
+      <details class="research-item"><summary><span class="research-icon">⌁</span><span>Integrated Sensing &amp; Communications</span><span class="research-plus">+</span></summary><p class="research-detail">RSMA-ISAC, beam-hopping LEO links, beam squint mitigation, sensing-rate tradeoffs, and power-split beamforming.</p></details>
+      <details class="research-item"><summary><span class="research-icon">3D</span><span>Wireless System Simulation</span><span class="research-plus">+</span></summary><p class="research-detail">Python and MATLAB-based system modelling, 3D network geometry, link-level evaluation, satellite communications, phased arrays, and 5G NR simulation.</p></details>
+    </div></div></section>
+
+    <section class="section soft" id="publications"><div class="container"><div class="section-heading"><p class="kicker">Research output</p><h2>Selected publications</h2><p class="section-intro">Peer-reviewed journal articles, accepted work, and conference contributions. Visit Google Scholar for the latest citation record.</p></div><div class="publication-tabs" role="tablist"><button class="tab-button active" type="button" data-panel="journals">Journals (5)</button><button class="tab-button" type="button" data-panel="conferences">Conferences (4)</button><button class="tab-button" type="button" data-panel="review">Under review (2)</button></div>
+      <div class="publication-panel active" id="journals">
+        <article class="paper"><span class="paper-number">01</span><div><h3>Coarse-to-Fine Doppler Compensation in 6G VLEO: Dual-Head Temporal Convolutional Network Acquisition with CP-Aided Tracking</h3><p>A. U. Rehman, S. Sualiheen, and K. H. Chang · <em>IEEE Transactions on Communications</em> · 2026</p></div></article>
+        <article class="paper"><span class="paper-number">02</span><div><h3>Adaptive Resource Allocation in 6G A2G-TN Integrated System: A Cross-Layer Multi-Agent PPO Approach</h3><p>A. U. Rehman, S. Sualiheen, and K. H. Chang · <em>Computer Networks</em> · 2025</p></div></article>
+        <article class="paper"><span class="paper-number">03</span><div><h3>6G Air-to-Ground Connectivity: A Codebook-Based Framework for Interference Management</h3><p>S. Sualiheen, A. U. Rehman, and K. H. Chang · <em>IEEE Journal on Selected Areas in Communications</em> · 2026</p></div></article>
+        <article class="paper"><span class="paper-number">04</span><div><h3>Enhanced 6G Non-Terrestrial Network Link Performance Using Deep Learning-Based Channel Estimation and Doppler Compensation Techniques</h3><p>C. J. Pawase, A. U. Rehman, and K. H. Chang · <em>Journal of Communications and Networks</em> · 2026</p></div></article>
+        <article class="paper"><span class="paper-number">05</span><div><h3>Intelligent Handover Management for 6G LEO Satellite Constellations: A Predictive Multi-Agent PPO Approach</h3><p>A. Samim, A. U. Rehman, and K. H. Chang · <em>IEEE Transactions on Network and Service Management</em> · Accepted, 2026</p></div></article>
+      </div>
+      <div class="publication-panel" id="conferences">
+        <article class="paper"><span class="paper-number">01</span><div><h3>RSMA-ISAC Power Allocation for Beam-Hopping LEO Satellite Communications with Distributed Beam-Local Tracking</h3><p>A. U. Rehman, S. Aslam, and S. Y. Shin · ICMIC 2026 · Taipei, Taiwan</p></div></article>
+        <article class="paper"><span class="paper-number">02</span><div><h3>AI at the Core of 6G: Integrating Multi-Orbit LEO Satellites and Terrestrial Networks</h3><p>A. Samim, A. U. Rehman, S. Sualiheen, and K. H. Chang · KICS Winter Conference · 2025</p></div></article>
+        <article class="paper"><span class="paper-number">03</span><div><h3>Dynamic Spectrum Coordination Mechanism for Spectrum Sharing Between 6G NTN and TN</h3><p>A. U. Rehman, S. Sualiheen, and K. H. Chang · KICS Summer Conference · 2024</p></div></article>
+        <article class="paper"><span class="paper-number">04</span><div><h3>Mitigating Beam Squint and Sensing Collapse in Wideband ISAC LEO Systems via Power-Split Beamforming</h3><p>A. U. Rehman, S. Aslam, and S. Y. Shin · KICS Summer Conference · 2026</p></div></article>
+      </div>
+      <div class="publication-panel" id="review">
+        <article class="paper"><span class="paper-number">01</span><div><h3>Context-Aware Multi-Link Communication for Cooperative Vehicle Perception in 5G NR V2X Networks</h3><p>D. Khan, S. Aslam, A. U. Rehman, et al. · Submitted to <em>IEEE Open Journal of the Communications Society</em></p><span class="review-label">Under review</span></div></article>
+        <article class="paper"><span class="paper-number">02</span><div><h3>LEO Satellites Integration with Terrestrial Networks: An Interference and Communication-Efficient Price-Based Federated Learning Approach</h3><p>S. Sualiheen, A. U. Rehman, and K. H. Chang · Submitted to <em>IEEE Transactions on Aerospace and Electronic Systems</em></p><span class="review-label">Under review</span></div></article>
+      </div>
+      <p style="margin-top:24px"><a class="project-link" href="https://scholar.google.com/citations?user=Vz_HTiwAAAAJ&amp;hl=en" target="_blank" rel="noopener">View Google Scholar ↗</a></p>
+    </div></section>
+
+    <section class="section" id="intellectual-property"><div class="container"><div class="section-heading"><p class="kicker">Innovation</p><h2>Patents &amp; software</h2></div><h3>Korean patent applications</h3><div class="ip-grid">
+      <article class="ip-card"><h3>Carrier Frequency Offset Estimation Based on Dual-Head TCN for Wide-Range VLEO Doppler Compensation</h3><p>Attiq Ur Rehman and KyungHi Chang · Application No. 10-2026-0010135 · Filed Jan. 15, 2026</p></article>
+      <article class="ip-card"><h3>Adaptive Resource Allocation Through Cross-Layer Multi-Agent PPO in 6G A2G-TN Integrated System</h3><p>Attiq Ur Rehman and KyungHi Chang · Application No. 10-2025-0041998 · Filed Apr. 1, 2025</p></article>
+    </div><h3 style="margin-top:34px">Software copyright registrations</h3><div class="ip-grid">
+      <article class="ip-card"><h3>Dual-Head TCN-Based Coarse-to-Fine Doppler Compensation for 6G VLEO Satellite Environments</h3><p>Korea Copyright Commission · C-2026-008789 · Feb. 18, 2026</p></article>
+      <article class="ip-card"><h3>Adaptive Resource Allocation in 6G Air-to-Ground Integrated Systems: A Cross-Layer Multi-Agent PPO Approach</h3><p>Korea Copyright Commission · C-2024-050516 · Feb. 28, 2025</p></article>
+    </div></div></section>
+
+    <section class="section soft" id="awards"><div class="container"><div class="section-heading"><p class="kicker">Recognition</p><h2>Awards &amp; honors</h2></div><div class="award-grid">
+      <article class="award"><div class="award-icon">★</div><h3>Best Workshop Paper Award</h3><p>ICMIC 2026 · Taipei, Taiwan · RSMA-ISAC for beam-hopping LEO satellite communications</p></article>
+      <article class="award"><div class="award-icon">◆</div><h3>Jungseok International Scholarship</h3><p>Inha University · 2024–2026</p></article>
+      <article class="award"><div class="award-icon">✦</div><h3>BK21 Scholarship</h3><p>Korean government-funded scholarship · 2024–2026</p></article>
+      <article class="award"><div class="award-icon">◈</div><h3>Project-Funded Scholarship</h3><p>Mobile Telecommunication Research Lab · 2024–2026</p></article>
+      <article class="award"><div class="award-icon">●</div><h3>Undergraduate Silver Medal</h3><p>University of Sargodha · Academic distinction</p></article>
+    </div><div class="award-feature"><img src="assets/images/icmic-award.jpg" alt="ICMIC 2026 Best Workshop Paper Award certificate"><div><p class="kicker">Featured award</p><h3>ICMIC 2026 Best Workshop Paper Award</h3><p>Awarded to Attiq Ur Rehman, Sawera Aslam, and Soo Young Shin for “RSMA-ISAC Power Allocation for Beam-Hopping LEO Satellite Communications with Distributed Beam-Local Tracking.”</p><a href="assets/docs/ICMIC2026-Best-Workshop-Paper-Award.pdf" target="_blank">View certificate ↗</a></div></div></div></section>
+
+    <section class="section" id="activities"><div class="container"><div class="section-heading"><p class="kicker">Academic &amp; professional moments</p><h2>Activities</h2><p class="section-intro">Conference presentations, workshops, academic milestones, and research-community activities in South Korea.</p></div><div class="gallery">
+      <figure><img src="assets/images/graduation-2026.jpg" alt="Master's graduation ceremony at Inha University" loading="lazy" onclick="openModal(this)"><figcaption>Master's graduation ceremony · Inha University · 2026</figcaption></figure>
+      <figure><img src="assets/images/masters-award.jpg" alt="Master's degree appreciation award" loading="lazy" onclick="openModal(this)"><figcaption>Master's degree appreciation award · MTRL, Inha University</figcaption></figure>
+      <figure><img src="assets/images/kics-2024-presentation.jpg" alt="Presenting research at KICS 2024" loading="lazy" onclick="openModal(this)"><figcaption>Presenting research at KICS Summer Conference · 2024</figcaption></figure>
+      <figure><img src="assets/images/kics-2025.jpg" alt="Attending KICS Winter Conference 2025" loading="lazy" onclick="openModal(this)"><figcaption>KICS Winter Conference · 2025</figcaption></figure>
+      <figure><img src="assets/images/kics-2026-presentation.jpg" alt="Presenting research at KICS Summer 2026" loading="lazy" onclick="openModal(this)"><figcaption>Presenting ISAC research at KICS Summer Conference · 2026</figcaption></figure>
+      <figure><img src="assets/images/kics-summer-2026.jpg" alt="Group photo at KICS Summer Conference 2026" loading="lazy" onclick="openModal(this)"><figcaption>KICS Summer Conference research community · 2026</figcaption></figure>
+      <figure><img src="assets/images/mobile-korea-solo.jpg" alt="Attending Mobile Korea 2025" loading="lazy" onclick="openModal(this)"><figcaption>Mobile Korea 2025 · LG Science Park</figcaption></figure>
+      <figure><img src="assets/images/mobile-korea-group.jpg" alt="Group photo at Mobile Korea 2025" loading="lazy" onclick="openModal(this)"><figcaption>Mobile Korea 2025 · AI-empowered networks workshop</figcaption></figure>
+      <figure><img src="assets/images/undergrad-silver-medal.jpg" alt="Undergraduate degree and silver medal" loading="lazy" onclick="openModal(this)"><figcaption>Undergraduate degree &amp; Silver Medal · University of Sargodha</figcaption></figure>
+      <figure><img src="assets/images/kics-winter-ski.jpg" alt="Ski activity during KICS Winter 2025" loading="lazy" onclick="openModal(this)"><figcaption>Winter activity during KICS conference · 2025</figcaption></figure>
+    </div></div></section>
+
+    <section class="section" id="contact"><div class="container"><div class="contact-box"><p class="kicker">Get in touch</p><h2>Research, collaboration &amp; communication</h2><p>For research discussions and academic collaboration in wireless communications, 6G NTN, satellite systems, AI for networks, and ISAC.</p><div class="contact-links"><a class="primary" href="mailto:atiqurrh109@gmail.com">✉ Email Me</a><a href="https://github.com/Attiq109" target="_blank" rel="noopener">⌘ GitHub</a><a href="https://www.linkedin.com/in/attiq-ur-rehman-807b78194/" target="_blank" rel="noopener">in LinkedIn</a><a href="https://scholar.google.com/citations?user=Vz_HTiwAAAAJ&amp;hl=en" target="_blank" rel="noopener">◈ Scholar</a><a href="assets/docs/Attiq_Ur_Rehman_CV.pdf" target="_blank">↓ CV</a></div></div></div></section>
+  </main>
+
+  <footer class="footer">© 2026 Attiq Ur Rehman · Wireless Communications Research Portfolio</footer>
+  <div class="modal" id="imageModal" onclick="closeModal(event)"><button class="modal-close" type="button" aria-label="Close image">×</button><img class="modal-content" id="modalImage" alt="Expanded activity image"></div>
+  <script>
+    const themeButton=document.getElementById('themeButton'); const menuButton=document.getElementById('menuButton'); const navLinks=document.getElementById('navLinks');
+    themeButton.addEventListener('click',()=>{document.body.classList.toggle('dark');localStorage.setItem('theme',document.body.classList.contains('dark')?'dark':'light')});
+    if(localStorage.getItem('theme')==='dark') document.body.classList.add('dark');
+    menuButton.addEventListener('click',()=>navLinks.classList.toggle('open')); navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+    document.querySelectorAll('.tab-button').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tab-button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.publication-panel').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.getElementById(btn.dataset.panel).classList.add('active')}));
+    function openModal(img){document.getElementById('modalImage').src=img.src;document.getElementById('modalImage').alt=img.alt;document.getElementById('imageModal').style.display='grid'}
+    function closeModal(e){if(e.target.id==='imageModal'||e.target.classList.contains('modal-close'))document.getElementById('imageModal').style.display='none'}
+    document.querySelector('.modal-close').addEventListener('click',()=>document.getElementById('imageModal').style.display='none');
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('imageModal').style.display='none'});
+  </script>
+</body>
+</html>
